@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum Submit - 043</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f9; margin: 0; padding: 40px; display: flex; justify-content: center; }
+        .container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
+        h2 { color: #0078d4; text-align: center; margin-bottom: 25px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; color: #333; }
+        input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        input:focus, select:focus { border-color: #0078d4; outline: none; box-shadow: 0 0 5px rgba(0,120,212,0.2); }
+        .btn-submit { background-color: #0078d4; color: white; border: none; padding: 14px; width: 100%; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; transition: background 0.3s; }
+        .btn-submit:hover { background-color: #005a9e; }
+        .footer { text-align: center; margin-top: 20px; font-size: 12px; color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Submit Praktikum</h2>
+        <!-- Form mengirim ke route /submit-task -->
+        <form action="/submit-task" method="POST" enctype="multipart/form-data">
+            
+            <label for="nim">NIM</label>
+            <input type="text" id="nim" name="nim" placeholder="Masukkan NIM (Contoh: 24001)" required>
+
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" name="name" placeholder="Nama Mahasiswa" required>
+
+            <label for="class_name">Kelas</label>
+            <!-- Nama 'class_name' harus sama dengan yang dipanggil di server.js -->
+            <input type="text" id="class_name" name="class_name" placeholder="Contoh: IF-043" required>
+
+            <label for="course">Mata Kuliah</label>
+            <select id="course" name="course" required>
+                <option value="">-- Pilih Mata Kuliah --</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="Sistem Terdistribusi">Sistem Terdistribusi</option>
+                <option value="Pemrograman Web">Pemrograman Web</option>
+            </select>
+
+            <label for="file_tugas">Unggah File Tugas</label>
+            <input type="file" id="file_tugas" name="file_tugas" required>
+
+            <button type="submit" class="btn-submit">Kirim ke Azure Cloud</button>
+        </form>
+        <div class="footer">
+            &copy; 2026 Praktikum Submit - Dyah Ayu P
+        </div>
+    </div>
+</body>
+</html>
