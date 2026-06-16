@@ -55,11 +55,70 @@ app.post('/submit-task', upload.single('file_tugas'), async (req, res) => {
                 return res.status(500).send("Gagal simpan ke database: " + err.message);
             }
             res.send(`
-                <div style="font-family: sans-serif; text-align: center; padding: 50px;">
-                    <h1 style="color: #28a745;">BERHASIL!</h1>
-                    <p>Tugas <b>${name}</b> sudah tersimpan di Azure.</p>
-                    <a href="/">Kembali</a>
-                </div>
+                <!DOCTYPE html>
+                <html lang="id">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Berhasil | Praktikum Submit</title>
+                    <style>
+                        body {
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            background-color: #fce4ec;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            min-height: 100vh;
+                            margin: 0;
+                        }
+                        .container {
+                            background-color: white;
+                            padding: 2.5rem;
+                            border-radius: 20px;
+                            box-shadow: 0 10px 25px rgba(240, 98, 146, 0.2);
+                            width: 100%;
+                            max-width: 400px;
+                            text-align: center;
+                        }
+                        .icon {
+                            font-size: 50px;
+                            color: #ff85a2;
+                            margin-bottom: 15px;
+                        }
+                        h2 {
+                            color: #f06292;
+                            margin-bottom: 10px;
+                        }
+                        p {
+                            color: #333;
+                            line-height: 1.5;
+                            margin-bottom: 25px;
+                        }
+                        .btn-back {
+                            display: inline-block;
+                            width: 100%;
+                            background-color: #ff85a2;
+                            color: white;
+                            padding: 12px;
+                            text-decoration: none;
+                            border-radius: 10px;
+                            font-weight: bold;
+                            transition: background-color 0.3s;
+                        }
+                        .btn-back:hover {
+                            background-color: #f06292;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="container">
+                        <div class="icon">🌸</div>
+                        <h2>BERHASIL!</h2>
+                        <p>Tugas kamu telah aman tersimpan di Azure Cloud.</p>
+                        <a href="/" class="btn-back">Kirim Tugas Lain</a>
+                    </div>
+                </body>
+                </html>
             `);
         });
     } catch (err) {
